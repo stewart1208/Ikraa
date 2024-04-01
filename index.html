@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ar">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إقرء</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+    <nav class="bg-gray-800 text-white text-center py-2">إقرء</nav>
+    <div class="flex justify-center items-center flex-1"> 
+        <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center">
+            <form class="flex flex-col items-center space-y-4">
+                <input type="text" id="ayaa" placeholder="أدخل الآية" class="py-2 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-gray-400">
+                <button 
+                type="submit" 
+                class="py-2 px-6 bg-green-700 text-white rounded-lg hover:bg-green-600 focus:outline-none focus:ring focus:ring-green-400"
+                onclick="handle(event)">تحليل</button>
+            
+            </form>
+            <input type="text" readonly id="result" placeholder="00" class="mt-4 w-full py-2 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-gray-400"> 
+       </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
