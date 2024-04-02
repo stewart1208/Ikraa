@@ -31,20 +31,40 @@ hashMap["و"] = 27;
 hashMap["ي"] = 28;
 
 function handle(event) {
-    // Prevent default form submission behavior
     event.preventDefault();
 
     var ayaa = document.getElementById("ayaa").value;
     var resultInput = document.getElementById("result");
     var resulta = 0;
-    
-    // Loop through each character in the ayaa string
+    var word = "";
+    var wordList = document.getElementById("wordList");
+    wordList.innerHTML = ""; 
+
     for (var i = 0; i < ayaa.length; i++) {
-        // Access the character at index i and convert it to its corresponding value
-        resulta += hashMap[ayaa.charAt(i)];
+        if (ayaa[i] !== " ") {
+            word += ayaa[i];
+        } else {
+            resulta += readW(word);
+            wordList.innerHTML += `<p>${word}: ${readW(word)}</p>`;
+            word = "";
+        }
     }
 
-    // Set the calculated result to the result input field
+    if (word !== "") {
+        resulta += readW(word);
+        wordList.innerHTML += `<p>${word}: ${readW(word)}</p>`;
+    }
+
     resultInput.value = resulta;
+    wordList.innerHTML += `<p>النتيجة النهائية: ${resulta}</p>`;
     console.log(resulta);
+}
+
+function readW(word) {
+    var res = 0
+    for (var i = 0; i < word.length; i++) {
+        res += hashMap[word.charAt(i)];
+    }
+    console.log(word + ":" + res);
+    return res;
 }
